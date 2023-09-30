@@ -3,7 +3,7 @@ import Layout from '../components/BaseLayout/Layout'
 
 const Homepage = () => {
   return (
-    <Layout> 
+    <Layout title={'Booktopia - Find a book that matches you'}> 
         <h1>Homepage</h1>
     </Layout>
   )

@@ -3,7 +3,7 @@ import Layout from '../components/BaseLayout/Layout'
 
 const About = () => {
   return (
-    <Layout> 
+    <Layout title={'About us - Booktopia'}> 
         <h1>About</h1>
     </Layout>
   )
