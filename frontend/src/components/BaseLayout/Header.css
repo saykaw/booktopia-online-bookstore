@@ -1,0 +1,46 @@
+/* Header.css */
+.navbar {
+    background-color: #759bbfaf; /* Change the background color as desired */
+    padding: 5px; /* Add padding to the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-elements {
+    font-size: 23px;
+    font-weight:bold;
+    font-family: 'Young Serif', serif;
+    display: inline-flex;
+    margin-left: 20px; /* Add spacing between list items */
+  }
+  
+  /* .navbar-elements ul:hover {
+    color: #548bad; 
+  } */
+  .Navbar_Elements{
+    display: inline-flex;
+    margin-left: 640px;
+  }
+
+  .nav-ele{
+    font-family: 'Playfair Display';
+    font-size: 18px;
+    margin-left: 20px;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: #ffffff; /* Text color for links */
+  }
+  
+  /* Add more styles as needed */
+  
