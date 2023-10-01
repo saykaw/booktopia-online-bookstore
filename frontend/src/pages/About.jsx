@@ -4,7 +4,7 @@ import "./About.css";
 
 const About = () => {
   return (
-    <Layout> 
+    <Layout title={'About us - Booktopia'}> 
         <h1>About</h1>
         <section className='about'>
           <div id='about_image'>
