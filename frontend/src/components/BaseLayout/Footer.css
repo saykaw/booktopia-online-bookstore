@@ -1,0 +1,26 @@
+/* Footer.css */
+.footer {
+    background-color: #759bbfc1; /* Change the background color as desired */
+    color: #fff; /* Text color for the footer */
+    display: flex;
+    flex-direction: column; /* Display children in a column */
+    align-items: center; /* Horizontally center children */
+    font-family: 'Playfair Display';
+  }
+  
+  .footer p{
+    font-size: 20px;
+    margin-left: 50px;
+  }
+  .link-container {
+    display: flex; /* Display links in a row */
+    margin-bottom: 20px;
+    margin-left: 50px;
+  }
+  
+  .link-container a {
+    text-decoration: none;
+    color: #4e7da9; /* Text color for links */
+    margin: 0 10px; /* Add spacing between links */
+  }
+  
