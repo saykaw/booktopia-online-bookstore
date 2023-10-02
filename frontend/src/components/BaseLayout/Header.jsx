@@ -34,7 +34,7 @@ const Header = () => {
           <div className="dropdown">
           <button className="dropdown-button">{auth?.user?.name}</button>
             <div className="dropdown-content">
-                <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
+                <li><NavLink to={`/dashboard/${auth?.user?.role === 1? "admin" : "user"}`}>Dashboard</NavLink></li>
                 <li><NavLink onClick = {handleLogout} to='/login'>Logout</NavLink></li>
             </div>
           </div>
