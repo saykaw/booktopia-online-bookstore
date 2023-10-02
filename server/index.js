@@ -4,6 +4,7 @@ import morgan from 'morgan';
 const PORT = process.env.PORT || 8080;
 import connectDb from './config/configdb.js';
 import register from './routes/authRoute.js';
+import cors from 'cors';
 // const mongoose = require('mongoose');
 // const jwt = require('jsonwebtoken');
 
@@ -15,6 +16,7 @@ connectDb();
  
 //middlewares
 //we want to let express know that we are using json(parsing the body into json)
+app.use(cors())
 app.use(express.json())
 app.use(morgan('dev'))
 
