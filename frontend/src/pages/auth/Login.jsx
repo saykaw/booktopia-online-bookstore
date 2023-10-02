@@ -60,6 +60,8 @@ const Login = () => {
                     <input value = {password} onChange = {(e)=> setPassword(e.target.value)} type="password" id="password" name="password" required/>
                 </div>
 
+                <button type="button" onClick={()=> {navigate('/forgot-password')}}>Forgot Password</button>
+
                 <button type="submit">Login</button>
             </form>
         </div>

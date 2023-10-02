@@ -12,6 +12,8 @@ const Register = () => {
     const [phone,setPhone] = useState('') 
     const [email,setEmail] = useState('') 
     const [password,setPassword] = useState('')
+    const [answer,setAnswer] = useState('')
+
 
     const navigate = useNavigate()
 
@@ -20,7 +22,7 @@ const Register = () => {
         // console.log(name,email,password,phone);
         // toast.success('Registered Successfully')
         try{
-            const res = await axios.post(`${apiKey}/api/v1/register`,{name,phone,email,password});
+            const res = await axios.post(`${apiKey}/api/v1/register`,{name,phone,email,password,answer});
             if (res && res.data.success){
                 toast.success(res.data.message);
                 navigate('/login')
@@ -54,6 +56,11 @@ const Register = () => {
                 <div className="form-elem">
                     <label htmlFor="email">Email:</label>
                     <input  value = {email} onChange = {(e)=> setEmail(e.target.value)} type="email" id="email" name="email" required/>
+                </div>
+
+                <div className="form-elem">
+                    <label htmlFor="answer">What is your favourite sport?</label>
+                    <input  value = {answer} onChange = {(e)=> setAnswer(e.target.value)} type="text" id="answer" name="answer" required/>
                 </div>
 
                 <div className="form-elem">
