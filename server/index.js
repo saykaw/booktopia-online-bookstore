@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 8080;
 import connectDb from './config/configdb.js';
 import register from './routes/authRoute.js';
 import cors from 'cors';
+import categoryRoutes from './routes/categoryRoutes.js'
 // const mongoose = require('mongoose');
 // const jwt = require('jsonwebtoken');
 
@@ -23,8 +24,7 @@ app.use(morgan('dev'))
 
 //routes
 app.use('/api/v1',register)
-
-
+app.use('/api/v1/category',categoryRoutes)
 
 // a default route :rest api
 app.get('/',(req,res)=>{
