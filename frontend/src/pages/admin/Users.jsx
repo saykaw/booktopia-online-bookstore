@@ -2,13 +2,13 @@ import React from 'react'
 import Layout from '../../components/BaseLayout/Layout'
 import AdminMenu from '../../components/BaseLayout/AdminMenu'
 
-const CreateProduct = () => {
+const Users = () => {
   return (
-    <Layout title={'Dashboard - Create Product'}>
+    <Layout title={'Dashboard - Users'}>
       <AdminMenu/>
-      <div><h1>CreateProduct</h1></div>
+      <div><h1> All Users</h1></div>
     </Layout>
   )
 }
 
-export default CreateProduct
+export default Users
