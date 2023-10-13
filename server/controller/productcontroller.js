@@ -2,6 +2,7 @@ import productModel from "../models/productModel.js"
 import fs from 'fs'
 import slugify from 'slugify'
 
+//create product
 export const createProductController = async(req,res) => {
     try{
         const {name,slug,author,description,price,category,quantity,shipping} = req.fields 
@@ -20,8 +21,6 @@ export const createProductController = async(req,res) => {
                 return res.status(500).send({error:'Category is required'})
             case !quantity:
                 return res.status(500).send({error:'Quantity is required'})
-            case !shipping:
-                return res.status(500).send({error:'Shipping is required'})
             case photo && photo.size >1000000:
                 return res.status(500).send({error:'Photo is required and should be less than 1MB'})   
         }
@@ -31,14 +30,12 @@ export const createProductController = async(req,res) => {
             products.photo.data = fs.readFileSync(photo.path)
             products.photo.contentType = photo.type
         }
-        await products.save()
+        await products.save()  
         res.status(201).send({
             success:true,
             message:'Product created successfully',
             products,
         })
-
-
     }
     catch(error){
         console.log(error)
@@ -50,6 +47,7 @@ export const createProductController = async(req,res) => {
     }
 } 
 
+//get products
 export const getproductController = async(req,res) => {
     try{
         const products = await productModel.find({}).populate('category').select("-photo").limit(12).sort({createdAt : -1})
@@ -59,7 +57,6 @@ export const getproductController = async(req,res) => {
             message:'Product viewed successfully',
             products,
         })
-
     }
     catch(error){
         console.log(error)
@@ -149,8 +146,6 @@ export const updateproductController =  async(req,res) => {
                 return res.status(500).send({error:'Category is required'})
             case !quantity:
                 return res.status(500).send({error:'Quantity is required'})
-            case !shipping:
-                return res.status(500).send({error:'Shipping is required'})
             case photo && photo.size >1000000:
                 return res.status(500).send({error:'Photo is required and should be less than 1MB'})   
         }
@@ -166,8 +161,6 @@ export const updateproductController =  async(req,res) => {
             message:'Product updated successfully',
             products,
         })
-
-
     }
     catch(error){
         console.log(error)
