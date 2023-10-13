@@ -36,11 +36,13 @@ const CreateCategory = () => {
       
     }
   }
+
+  //viewing the categories
   const getAllCategory = async(req,res) => {
     try {
       const {data} = await axios.get(`${apiKey}/api/v1/category/view-categories`)
-      if(data.success){
-        setCategories(data.category)
+      if(data?.success){
+        setCategories(data?.category)
       }
     } catch (error) {
       console.log(error)
