@@ -11,6 +11,7 @@ const Register = () => {
     const [name,setName] = useState('') 
     const [phone,setPhone] = useState('') 
     const [email,setEmail] = useState('') 
+    const [address,setAddress] = useState('') 
     const [password,setPassword] = useState('')
     const [answer,setAnswer] = useState('')
 
@@ -22,7 +23,7 @@ const Register = () => {
         // console.log(name,email,password,phone);
         // toast.success('Registered Successfully')
         try{
-            const res = await axios.post(`${apiKey}/api/v1/register`,{name,phone,email,password,answer});
+            const res = await axios.post(`${apiKey}/api/v1/register`,{name,phone,address,email,password,answer});
             if (res && res.data.success){
                 toast.success(res.data.message);
                 navigate('/login')
@@ -49,14 +50,20 @@ const Register = () => {
                 </div>
 
                 <div className="form-elem">
+                    <label htmlFor="email">Email:</label>
+                    <input  value = {email} onChange = {(e)=> setEmail(e.target.value)} type="email" id="email" name="email" required/>
+                </div>
+
+                <div className="form-elem">
+                    <label htmlFor="address">Address:</label>
+                    <input  value = {address} onChange = {(e)=> setAddress(e.target.value)} type="text" id="address" name="address" required/>
+                </div>
+
+                <div className="form-elem">
                     <label htmlFor="phone">Phone:</label>
                     <input  value = {phone} onChange = {(e)=> setPhone(e.target.value)} type="tel" id="phone" name="phone" required/>
                 </div>
 
-                <div className="form-elem">
-                    <label htmlFor="email">Email:</label>
-                    <input  value = {email} onChange = {(e)=> setEmail(e.target.value)} type="email" id="email" name="email" required/>
-                </div>
 
                 <div className="form-elem">
                     <label htmlFor="answer">What is your favourite sport?</label>
