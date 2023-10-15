@@ -5,12 +5,15 @@ import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/cart";
+import toast from "react-hot-toast";
 
 const apiKey = import.meta.env.VITE_API_URL
 
 const Homepage = () => {
   // const[auth,setAuth] = useAuth();
   const navigate= useNavigate( )
+  const [cart,setCart] = useCart()
   const[products,setProducts] = useState([])
   const[categories,setCategories] = useState([])
   const [checked, setChecked] = useState([]);
@@ -152,7 +155,13 @@ const Homepage = () => {
                           <p className="card-text">{p.description.substring(0,30)}...</p>
                           <p className="card-text"> &#8377; {p.price}</p>
                           <button className="btn btn-primary ms-2" onClick={()=>navigate(`/product/${p.slug}`)}>More details</button>
-                          <button className="btn btn-secondary ms-2">Add to cart</button>
+                          <button className="btn btn-secondary ms-2" 
+                          onClick={()=>
+                            {setCart([...cart,p])
+                            localStorage.setItem('cart',JSON.stringify([...cart,p]))
+                            toast.success("Item added to cart!!");
+                          }}>Add to cart
+                          </button>
                         </div>
                     </div>
                 ))}
@@ -169,10 +178,6 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-        
-      {/* </div>
-        <h1>Homepage</h1>
-        <pre>{JSON.stringify(auth,null,4)}</pre> */}
     </Layout>
   )
 }
