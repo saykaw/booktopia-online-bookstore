@@ -6,13 +6,16 @@ import jwt from "jsonwebtoken";
 //req,res : callback function
 export const registerController = async(req,res) => {
     try{
-        const {name,email,phone,answer,password} =  req.body;
+        const {name,email,address,phone,answer,password} =  req.body;
         //validation
         if(!name){
             return res.send({message: 'Name is required' })
         }
         if(!email){
             return res.send({message: 'Email is required' })
+        }
+        if(!address){
+            return res.send({message: 'Address is required' })
         }
         if(!phone){
             return res.send({message: 'Phone is required' })
@@ -37,7 +40,7 @@ export const registerController = async(req,res) => {
         const hashedPassword = await hashPassword(password);
         //key:value pair  - key : password ,value :hashedPassword
         //save the user 
-        const user = new userModel ({name,email,phone,password:hashedPassword,answer}).save()
+        const user = new userModel ({name,email,address,phone,password:hashedPassword,answer}).save()
 
         res.status(200).send({
             success:true,
@@ -91,6 +94,7 @@ export const loginController = async(req,res) => {
                 name:user.name,
                 email:user.email,
                 phone:user.phone,
+                address:user.address,
                 role:user.role
             },
             token,
@@ -152,4 +156,39 @@ export const forgotPasswordController = async (req,res) =>{
 
 export const testController = (req,res) => {
     res.send("protected route")
+}
+
+
+export const updateProfileController = async(req,res) => {
+    try {
+        const { name, email, password, address, phone } = req.body;
+        const user = await userModel.findById(req.user._id);
+        //password
+        if (password && password.length < 6) {
+          return res.json({ error: "Passsword is required and 6 character long" });
+        }
+        const hashedPassword = password ? await hashPassword(password) : undefined;
+        const updatedUser = await userModel.findByIdAndUpdate(
+          req.user._id,
+          {
+            name: name || user.name,
+            password: hashedPassword || user.password,
+            phone: phone || user.phone,
+            address: address || user.address,
+          },
+          { new: true }
+        );
+        res.status(200).send({
+          success: true,
+          message: "Profile updated successfully.",
+          updatedUser,
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(400).send({
+          success: false,
+          message: "Error while updating profile.",
+          error,
+        });
+      }
 }
