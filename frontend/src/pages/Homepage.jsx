@@ -4,11 +4,13 @@ import Layout from '../components/BaseLayout/Layout'
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/Prices";
+import { useNavigate } from "react-router-dom";
 
 const apiKey = import.meta.env.VITE_API_URL
 
 const Homepage = () => {
   // const[auth,setAuth] = useAuth();
+  const navigate= useNavigate( )
   const[products,setProducts] = useState([])
   const[categories,setCategories] = useState([])
   const [checked, setChecked] = useState([]);
@@ -149,7 +151,7 @@ const Homepage = () => {
                           <h5 className="card-title">{p.name}</h5>
                           <p className="card-text">{p.description.substring(0,30)}...</p>
                           <p className="card-text"> &#8377; {p.price}</p>
-                          <button className="btn btn-primary ms-2">More details</button>
+                          <button className="btn btn-primary ms-2" onClick={()=>navigate(`/product/${p.slug}`)}>More details</button>
                           <button className="btn btn-secondary ms-2">Add to cart</button>
                         </div>
                     </div>

@@ -21,6 +21,8 @@ import Profile from './pages/user/Profile';
 import { matchScreen } from 'antd/es/_util/responsiveObserver';
 import Products from './pages/admin/Products';
 import UpdateProduct from './pages/admin/UpdateProduct';
+import Search from './pages/Search';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
 
@@ -28,6 +30,8 @@ function App() {
     <>
     <Routes>
       <Route path="/" element={<HomePage/>}/>
+      <Route path="/product/:slug" element={<ProductDetails/>}/>
+      <Route path="/search" element={<Search/>}/>
       <Route path="/dashboard" element ={<PrivateRoute/>}>
         <Route path="user" element={<Dashboard/>}/>
         <Route path="user/orders" element={<Orders/>}/>
