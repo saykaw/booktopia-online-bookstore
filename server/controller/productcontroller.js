@@ -1,4 +1,7 @@
 import productModel from "../models/productModel.js"
+import categoryModel from "../models/categoryModel.js"
+
+
 import fs from 'fs'
 import slugify from 'slugify'
 
@@ -202,7 +205,7 @@ export const productCountController = async(req,res) => {
         const total = await productModel.find({}).estimatedDocumentCount();
         res.status(200).send({
             success:true,
-            total,
+            total, 
         })
         
     } catch (error) {
@@ -288,5 +291,26 @@ export const relatedProductController = async(req,res) => {
             message:'Error in getting related product',
             error,
         }) 
+    }
+}
+
+
+//category wise product
+export const productCategoryController = async(req,res) => {
+    try {
+        const category = await categoryModel.findOne({ slug: req.params.slug });
+        const products = await productModel.find({ category }).populate("category");
+        res.status(200).send({
+        success: true,
+        category,
+        products,
+        });
+    } catch (error) {
+        console.log(error)
+        res.status(400).send({
+            succes:false,
+            message:'Error in getting category-wise product',
+            error,
+        })     
     }
 }
