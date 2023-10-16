@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/BaseLayout/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../styles/CategoryProductStyles.css";
+
 
 const apiKey = import.meta.env.VITE_API_URL
 
@@ -49,7 +51,7 @@ const CategoryProduct = () => {
                     <p className="card-text">
                       {p.description.substring(0, 30)}...
                     </p>
-                    <p className="card-text"> $ {p.price}</p>
+                    <p className="card-text"> &#8377; {p.price}</p>
                     <button
                       className="btn btn-primary ms-1"
                       onClick={() => navigate(`/product/${p.slug}`)}

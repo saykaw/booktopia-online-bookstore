@@ -5,6 +5,8 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import {Link} from 'react-router-dom'
 import '../../../src/index.css'
+// import '../styles/ProductDetails.css'
+
 
 
 const apiKey = import.meta.env.VITE_API_URL
@@ -30,7 +32,7 @@ const Products = () => {
   return (
     <Layout>
         <div className="row">
-            <div className="col-md-3 ">
+            <div className="col-md-3">
                 <AdminMenu/>
             </div>
             <div className="col-md-9">
@@ -39,7 +41,7 @@ const Products = () => {
                 {products?.map((p)=>(
                     <Link   key={p._id} to={`/dashboard/admin/product/single-product/${p.slug}`} className="product-link">
                         <div className="card m-2" style={{ width: "18rem" }}>
-                            <img className="card-img-top" src={`${apiKey}/api/v1/product/product-photo/${p._id}`} alt={p.name}/>
+                            <img className="card-img-top" src={`${apiKey}/api/v1/product/product-photo/${p._id}`} alt={p.name} />
                             <div className="card-body">
                                 <h5 className="card-title">{p.name}</h5>
                                  <p className="card-text">{p.description}</p>

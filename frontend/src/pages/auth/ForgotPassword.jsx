@@ -36,26 +36,25 @@ const ForgotPassword = () => {
 
   return (
     <Layout title={'Forgot Password - Booktopia'}>
-        <div className="auth-page">
-            <h1>Reset Password</h1>
+      <div className="form-container ">
             <form onSubmit={handleSubmit}>
+            <h4 className="title">RESET PASSWORD</h4>
 
-                <div className="form-elem">
-                    <label htmlFor="email">Email:</label>
-                    <input  value = {email} onChange = {(e)=> setEmail(e.target.value)} type="email" id="email" name="email" required/>
+                <div className="mb-3">
+                    <input  value = {email} onChange = {(e)=> setEmail(e.target.value)} type="email" id="email" className="form-control"
+ placeholder="Enter Your Email " required/>
                 </div>
 
-                <div className="form-elem">
-                    <label htmlFor="answer">What is your favourite sport?:</label>
-                    <input  value = {answer} onChange = {(e)=> setAnswer(e.target.value)} type="text" id="answer" name="answer" required/>
+                <div className="mb-3">
+                    <input  value = {answer} onChange = {(e)=> setAnswer(e.target.value)}  className="form-control" type="text" id="answer" placeholder="Enter Favorite Sport"
+                required/>
                 </div>
 
-                <div className="form-elem">
-                    <label htmlFor="password"> New Password:</label>
-                    <input value = {newPassword} onChange = {(e)=> setnewPassword(e.target.value)} type="password" id="password" name="password" required/>
+                <div className="mb-3">
+                    <input value = {newPassword} onChange = {(e)=> setnewPassword(e.target.value)} type="password" id="password" className="form-control" placeholder="Enter New Password" required/>
                 </div>
 
-                <button type="submit">Reset</button>
+                <button className="btn btn-primary" type="submit">RESET</button>
             </form>
         </div>
         

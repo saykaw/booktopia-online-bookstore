@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import Layout from '../../components/BaseLayout/Layout'
-// import './auth.css'
+import './auth.css'
 import axios from 'axios';
 import { useNavigate ,useLocation} from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -46,23 +46,23 @@ const Login = () => {
     
     return (
     <Layout title={'Login - Booktopia'}>
-        <div className="auth-page">
-            <h1>Login</h1>
+         <div className="form-container " style={{ minHeight: "90vh" }}>
             <form onSubmit={handleSubmit}>
+            <h4 className="title">LOGIN</h4>
 
-                <div className="form-elem">
-                    <label htmlFor="email">Email:</label>
-                    <input  value = {email} onChange = {(e)=> setEmail(e.target.value)} type="email" id="email" name="email" required/>
+                <div className="mb-3">
+                    <input  value = {email} onChange = {(e)=> setEmail(e.target.value)} type="email" id="email" placeholder="Enter Your Email " className="form-control" autoFocus required/>
                 </div>
 
-                <div className="form-elem">
-                    <label htmlFor="password">Password:</label>
-                    <input value = {password} onChange = {(e)=> setPassword(e.target.value)} type="password" id="password" name="password" required/>
+                <div className="mb-3">
+                    <input value = {password} onChange = {(e)=> setPassword(e.target.value)} type="password" id="password" placeholder="Enter Your Password " className="form-control"  required/>
                 </div>
 
-                <button type="button" onClick={()=> {navigate('/forgot-password')}}>Forgot Password</button>
+                <div className="mb-3">
+                    <button type="submit" className="btn btn-primary m-3">Login</button>
+                    <button type="button" className="btn forgot-btn m-3" onClick={()=> {navigate('/forgot-password')}}>Forgot Password</button>
+                </div>
 
-                <button type="submit">Login</button>
             </form>
         </div>
     </Layout>

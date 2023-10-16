@@ -7,6 +7,7 @@ import { Prices } from "../components/Prices";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
+// import "../styles/HomePageStyles.css";
 
 const apiKey = import.meta.env.VITE_API_URL
 
@@ -52,6 +53,7 @@ const Homepage = () => {
       console.log(error)
     }
   }
+
   useEffect(()=>{
     if(!checked.length || !radio.length)  getAllProducts()
   },[checked.length,radio.length])
@@ -70,8 +72,6 @@ const Homepage = () => {
       
     } catch (error) {
       console.log(error)
-
-      
     }
   }
 
@@ -128,7 +128,6 @@ const Homepage = () => {
             <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>{c.name}</Checkbox>
           ))}
           </div> 
-          {/* price filter */}
           < h4 className="text-center mt-4">Filter by Price</h4>
           <div className="d-flex flex-column  m-3">
             <Radio.Group onChange={e => setRadio(e.target.value)}>
@@ -144,7 +143,6 @@ const Homepage = () => {
           </div>
         </div>
         <div className="col-md-9">
-          {JSON.stringify(radio,null,4)}
           <h1 className="text-center">All Books</h1>
           <div className="d-flex flex-wrap">
           {products?.map((p)=>(

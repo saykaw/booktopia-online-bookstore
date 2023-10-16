@@ -41,41 +41,41 @@ const Register = () => {
 
   return (
     <Layout title={'Register - Booktopia'}>
-        <div className="auth-page">
-            <h1>Sign Up</h1>
+         <div className="form-container " style={{ minHeight: "90vh" }}>
             <form onSubmit={handleSubmit}>
-                <div className="form-elem">
-                    <label htmlFor="name">Name:</label>
-                    <input  value = {name} onChange = {(e)=> setName(e.target.value)} type="text" id="name" name="name" required/>
+                <h4 className="title">REGISTER</h4>
+
+                <div className="mb-3">
+                    <input  type="text" value = {name} onChange = {(e)=> setName(e.target.value)}  id="name" className="form-control"
+                    placeholder="Enter Your Name" required  autoFocus/>
                 </div>
 
-                <div className="form-elem">
-                    <label htmlFor="email">Email:</label>
-                    <input  value = {email} onChange = {(e)=> setEmail(e.target.value)} type="email" id="email" name="email" required/>
+                <div className="mb-3">
+                    <input   type="email" value = {email} onChange = {(e)=> setEmail(e.target.value)} id="email" className="form-control" placeholder="Enter Your Email"
+ required/>
                 </div>
 
-                <div className="form-elem">
-                    <label htmlFor="address">Address:</label>
-                    <input  value = {address} onChange = {(e)=> setAddress(e.target.value)} type="text" id="address" name="address" required/>
+                <div className="mb-3">
+                    <input  type="text" value = {address} onChange = {(e)=> setAddress(e.target.value)} id="address" className="form-control" placeholder="Enter Your Address"
+required/>
                 </div>
 
-                <div className="form-elem">
-                    <label htmlFor="phone">Phone:</label>
-                    <input  value = {phone} onChange = {(e)=> setPhone(e.target.value)} type="tel" id="phone" name="phone" required/>
+                <div className="mb-3">
+                    <input type="text" value = {phone} onChange = {(e)=> setPhone(e.target.value)}  id="phone" className="form-control" placeholder="Enter Your Phone"  required/>
                 </div>
 
 
-                <div className="form-elem">
-                    <label htmlFor="answer">What is your favourite sport?</label>
-                    <input  value = {answer} onChange = {(e)=> setAnswer(e.target.value)} type="text" id="answer" name="answer" required/>
+                <div className="mb-3">
+                    <input type="text"  value = {answer} onChange = {(e)=> setAnswer(e.target.value)}  id="answer" className="form-control" placeholder="Favourite Sport?"  required/>
                 </div>
 
-                <div className="form-elem">
-                    <label htmlFor="password">Password:</label>
-                    <input value = {password} onChange = {(e)=> setPassword(e.target.value)} type="password" id="password" name="password" required/>
+                <div className="mb-3">
+                    <input type="password"  value = {password} onChange = {(e)=> setPassword(e.target.value)} id="password" className="form-control" placeholder="Enter your Password" required/>
                 </div>
 
-                <button type="submit">Submit</button>
+                <button type="submit" className="btn btn-primary">
+                    Register
+                 </button>
             </form>
         </div>
     </Layout>

@@ -5,6 +5,8 @@ import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
+import "../styles/CartStyles.css";
+
 
 
 const apiKey = import.meta.env.VITE_API_URL
@@ -12,10 +14,11 @@ const apiKey = import.meta.env.VITE_API_URL
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
-  const navigate = useNavigate();
   const [clientToken,setClientToken] = useState("")
   const [instance,setInstance] = useState("")
   const [loading,setLoading] = useState(false)
+  const navigate = useNavigate();
+
   //total price
   const totalPrice = () => {
     try {
@@ -64,10 +67,7 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post(`${apiKey}/api/v1/product/braintree/payment`, {
-        nonce,
-        cart,
-      });
+      const { data } = await axios.post(`${apiKey}/api/v1/product/braintree/payment`, {nonce,cart});
       setLoading(false);
       localStorage.removeItem('cart');
       setCart([]);
@@ -168,18 +168,18 @@ const CartPage = () => {
               {
                 !clientToken || !cart?.length  ? ("") : (
                   <>
-                  <DropIn
-              options={{
-                authorization:clientToken,
-                paypal:{
-                  flow:'vault'
-                }
-              }}
-              onInstance={instance => setInstance(instance)}/>
-              <button className="btn btn-primary" onClick={handlePayment} 
-              disabled={!loading || !instance || !auth?.user?.address}
-              >{loading ? "Processing.." : "Pay Now"}
-              </button>
+                    <DropIn
+                    options={{
+                      authorization:clientToken,
+                      paypal:{
+                        flow:'vault'
+                      },
+                    }}
+                    onInstance={(instance) => setInstance(instance)}/>
+                    <button className="btn btn-primary" onClick={handlePayment} 
+                    disabled={!loading || !instance || !auth?.user?.address}>
+                      {loading ? "Processing.." : "Make Payment"}
+                    </button>
                   </>
                 )
               }

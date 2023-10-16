@@ -1,42 +1,38 @@
-/* Style for the dropdown container */
-.dropdown {
-  position: relative;
-  display: inline-block;
+/* //navbar css */
+.navbar {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 6px -6px gray;
+  --webkit-box-shadow: 0 8px 6px -6px gray;
+  border-bottom: solid gray !important;
 }
 
-/* Style for the button that opens the dropdown */
-.dropdown-button {
-  background-color: #3498db;
-  color: #fff;
-  padding: 10px;
+.nav-link {
+  font-weight: 300 !important;
+}
+
+.active {
+  border-bottom: 2px solid black;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-family: "roboto", sans-serif;
+  letter-spacing: 3px;
+}
+
+.search-form {
+  margin-right: 10px;
+  margin-top: 4px;
+}
+.search-form input {
   border: none;
-  cursor: pointer;
+  border-radius: 0;
 }
-
-/* Style for the dropdown content */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-}
-
-/* Style for the dropdown items */
-.dropdown-item {
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  color: #333;
-}
-
-/* Hover effect on dropdown items */
-.dropdown-item:hover {
-  background-color: #ddd;
-}
-
-/* Show the dropdown content when the dropdown button is hovered */
-.dropdown:hover .dropdown-content {
-  display: block;
+.search-form button {
+  background-color: #000000;
+  border-radius: 0;
+  color: white;
 }
