@@ -11,6 +11,7 @@ const AdminMenu = () => {
         <ListGroup.Item><NavLink to="/dashboard/admin/create-category">Create Category</NavLink></ListGroup.Item>
         <ListGroup.Item><NavLink to="/dashboard/admin/create-product">Create Product</NavLink></ListGroup.Item>
         <ListGroup.Item><NavLink to="/dashboard/admin/products">View Products</NavLink></ListGroup.Item>
+        <ListGroup.Item><NavLink to="/dashboard/admin/orders">View Orders</NavLink></ListGroup.Item>
         <ListGroup.Item><NavLink to="/dashboard/admin/users">Users</NavLink></ListGroup.Item>
         </ListGroup>
     </div>
