@@ -46,4 +46,7 @@ router.get('/braintree/token',braintreeTokenController)
 
 //payments rute
 router.post('/braintree/payment',requireSignIn,braintreePaymentController)
+
+//payment using striper
+// router.post('/create-checkout-session',requireSignIn,stripePaymentController)
 export default router
