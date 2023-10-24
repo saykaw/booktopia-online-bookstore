@@ -370,3 +370,8 @@ export const braintreePaymentController = async (req,res) => {
         console.log(error)
     }
 }
+
+
+// export const  stripePaymentController = async (req,res) =>{
+    
+// }
