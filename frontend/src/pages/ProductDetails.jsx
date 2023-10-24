@@ -44,14 +44,14 @@ const ProductDetails = () => {
     <Layout>
         {/* <h1>Product Details</h1>
         {JSON.stringify(product,null,4)} */}
-      <div className="row container mt-2">
-        <div className="col-md-6">
+      <div className="row container mt-5">
+        <div className="col-md-3">
           <img
             src={`${apiKey}/api/v1/product/product-photo/${product._id}`}
             className="card-img-top"
+            // width={"75px"}
+            height={"400px"}
             alt={product.name}
-            height="300"
-            width={"350px"}
           />
         </div>
         <div className="col-md-6 ">
@@ -60,14 +60,21 @@ const ProductDetails = () => {
           <h6>Description : {product.description}</h6>
           <h6>Price : {product.price}</h6>
           <h6>Category : {product?.category?.name}</h6>
-          <button class="btn btn-secondary ms-1">Add To Cart</button>
+          {/* <button className="btn btn-primary ms-0  mt-4">Add To Cart</button> */}
+          <button className="btn btn-primary ms-0  mt-4"  >Go Back</button>
+          {/* <NavLink
+            to="/categories"
+            className="list-group-item list-group-item-action"
+          >
+           <button className="btn btn-primary ms-0  mt-4" >Go Back</button>
+          </NavLink> */}
         </div>
       </div>
       <hr />
       <div className="row container">
-        <h6>Similar Products</h6>
+        <h3>Similar Products</h3>
         {relatedProducts.length < 1 && (
-          <p className="text-center">No Similar Products found</p>
+          <p className="text-center">No Similar Products found </p>
         )}
         <div className="d-flex flex-wrap">
           {relatedProducts?.map((p) => (

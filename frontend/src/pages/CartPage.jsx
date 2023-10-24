@@ -6,6 +6,9 @@ import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
 import "../styles/CartStyles.css";
+import {loadStripe} from '@stripe/stripe-js';
+import sessionStorage from "redux-persist/es/storage/session";
+
 
 
 
@@ -79,6 +82,31 @@ const CartPage = () => {
     }
   }
 
+  //payment integration using stripe
+  const makePayment = async() =>{
+    const stripe = await loadStripe('pk_test_51O1vNiSHMorLlqPzVlkfTtPehDDZOVCHQwcyNW7sbA0tYjrmi5BYQrPnsutrRkneOmXRg3RpcHuENggSXsukPhzR00dk0gV4vw')
+    const body = {
+      products:carts
+    }
+    const headers = {
+      "Content-Type" : "application/json"
+    }
+    const response = await fetch (`${apiKey}/api/v1/product/create-checkout-session`,{
+      method:POST,
+      headers:headers,
+      body:JSON.stringify(body)
+    })
+
+    const session = await response.json()
+
+    const result = stripe.redirectToCheckout({
+      sessionId:session.id
+    })
+    if(result.error){
+      console.log(result.error)
+    }
+  }
+
   return (
     <Layout>
       <div className="container">
@@ -105,13 +133,13 @@ const CartPage = () => {
                     src={`${apiKey}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
-                    width={"100px"}
-                    height={"100px"}
+                    width={"50px"}
+                    height={"370px"}
                   />
                 </div>
                 <div className="col-md-8">
                   <p>{p.name}</p>
-                  <p>{p.description.substring(0, 30)}</p>
+                  <p>{p.description}</p>
                   <p>Price : &#8377; {p.price}</p>
                   <button
                     className="btn btn-danger"
@@ -183,6 +211,7 @@ const CartPage = () => {
                   </>
                 )
               }
+              {/* <button className="btn btn-success" onClick = {makePayment}>Checkout</button> */}
             </div>
           </div>
         </div>

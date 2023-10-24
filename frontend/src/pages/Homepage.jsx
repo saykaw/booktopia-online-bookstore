@@ -120,16 +120,16 @@ const Homepage = () => {
   }
   return (
     <Layout title={'Booktopia - Best Offers'}> 
-      <div className="row mt-3">
+      <div className="row mt-5">
         <div className="col-md-3">
-          < h4 className="text-center">Filter by category</h4>
-          <div className="d-flex flex-column m-3">
+          < h3 className="text-center">Filter by category</h3>
+          <div className="d-flex flex-column m-5">
           {categories?.map (c => (
             <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>{c.name}</Checkbox>
           ))}
           </div> 
-          < h4 className="text-center mt-4">Filter by Price</h4>
-          <div className="d-flex flex-column  m-3">
+          < h3 className="text-center mt-4">Filter by Price</h3>
+          <div className="d-flex flex-column  m-5">
             <Radio.Group onChange={e => setRadio(e.target.value)}>
               {Prices?.map((p) => (
               <div key={p._id}>
@@ -146,7 +146,7 @@ const Homepage = () => {
           <h1 className="text-center">All Books</h1>
           <div className="d-flex flex-wrap">
           {products?.map((p)=>(
-                    <div className="card m-2" style={{ width: "18rem" }}>
+                    <div className="card m-4" style={{ width: "18rem" }}>
                         <img className="card-img-top" src={`${apiKey}/api/v1/product/product-photo/${p._id}`} alt={p.name} style={{ width: "18rem", height:"400px"  }}/>
                         <div className="card-body">
                           <h5 className="card-title">{p.name}</h5>
@@ -164,7 +164,7 @@ const Homepage = () => {
                     </div>
                 ))}
            </div>
-          <div className="m-2 p-3">
+          <div className="m-4 p-4">
             {products && products.length < total && (
               <button className="btn btn-warning" 
               onClick={(e)=> {
