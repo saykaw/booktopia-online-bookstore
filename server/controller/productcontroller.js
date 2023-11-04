@@ -372,6 +372,3 @@ export const braintreePaymentController = async (req,res) => {
 }
 
 
-// export const  stripePaymentController = async (req,res) =>{
-    
-// }

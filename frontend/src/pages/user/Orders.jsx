@@ -66,13 +66,13 @@ const Orders = () => {
                                         src={`${apiKey}/api/v1/product/product-photo/${p._id}`}
                                         className="card-img-top"
                                         alt={p.name}
-                                        width="100px"
-                                        height={"100px"}
+                                        width={"55px"}
+                                        height={"550px"}
                                     />
                                     </div>
                                     <div className="col-md-8">
                                         <p>{p.name}</p>
-                                        <p>{p.description.substring(0, 30)}</p>
+                                        <p>{p.description}</p>
                                         <p>Price : &#8377; {p.price}</p>
                                      </div>
                                  </div>

@@ -1,12 +1,14 @@
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import './HomePage.css';
 import Card from './Card.jsx';
 import axios from 'axios';
 
 
 const HomePage = () => {
+    //fetching bookdata : using search functionality
     const[search,setSearch] = useState('') ;
     const[bookData,setData] = useState([]);
+
     const apiKey = 'AIzaSyC231Sh3d7Pxtm3u7nbPAAum-kcCGAjkMM';
     const searchBook = (evt) => {
         if(evt.key === "Enter"){

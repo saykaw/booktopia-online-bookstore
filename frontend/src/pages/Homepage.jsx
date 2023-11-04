@@ -150,6 +150,7 @@ const Homepage = () => {
                         <img className="card-img-top" src={`${apiKey}/api/v1/product/product-photo/${p._id}`} alt={p.name} style={{ width: "18rem", height:"400px"  }}/>
                         <div className="card-body">
                           <h5 className="card-title">{p.name}</h5>
+                          <p className="card-text">{p.author}</p>
                           <p className="card-text">{p.description.substring(0,30)}...</p>
                           <p className="card-text"> &#8377; {p.price}</p>
                           <button className="btn btn-primary ms-2" onClick={()=>navigate(`/product/${p.slug}`)}>More details</button>

@@ -57,11 +57,12 @@ const ProductDetails = () => {
         <div className="col-md-6 ">
           <h1 className="text-center">Product Details</h1>
           <h6>Name : {product.name}</h6>
+          <h6>Author : {product.author}</h6>
           <h6>Description : {product.description}</h6>
           <h6>Price : {product.price}</h6>
           <h6>Category : {product?.category?.name}</h6>
           {/* <button className="btn btn-primary ms-0  mt-4">Add To Cart</button> */}
-          <button className="btn btn-primary ms-0  mt-4"  >Go Back</button>
+          <button className="btn btn-primary ms-0  mt-4">Go Back</button>
           {/* <NavLink
             to="/categories"
             className="list-group-item list-group-item-action"
@@ -85,9 +86,9 @@ const ProductDetails = () => {
                 alt={p.name}
               />
               <div className="card-body">
-                <h5 className="card-title">{p.name}</h5>
-                <p className="card-text">{p.description.substring(0, 30)}...</p>
-                <p className="card-text"> &#8377; {p.price}</p>
+                <h5 className="card-title text-center">{p.name}</h5>
+                <p className="card-text text-center">{p.author}</p>
+                <p className="card-text text-center"> &#8377; {p.price}</p>
                 <button class="btn btn-secondary ms-1">Add To Cart</button>
               </div>
             </div>
