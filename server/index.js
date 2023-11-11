@@ -7,7 +7,8 @@ import register from './routes/authRoute.js';
 import cors from 'cors';
 import categoryRoutes from './routes/categoryRoutes.js'
 import productRoutes from './routes/productRoutes.js'
-// import path from 'path'
+import path from 'path'
+
 
 const app = express();
 //configuring dotenv
@@ -26,12 +27,17 @@ app.use(morgan('dev'))
 app.use('/api/v1',register)
 app.use('/api/v1/category',categoryRoutes)
 app.use('/api/v1/product',productRoutes)
-// app.use(express.static(path.join(__dirname, './client/build')))
+
+app.use(express.static(path.join(__dirname, './frontend/dist')))
+
+app.get('*',function(req,res){
+    res.sendFile(path.join(__dirname,'./frontend/dist/index.html'))
+})
 
 // a default route :rest api
-app.get('/',(req,res)=>{
-    res.send('hello world');
-})
+// app.get('/',(req,res)=>{
+//     res.send('hello world');
+// })
 
 // app.use("*",function(req,res){
 //     res.sendFile(path.join(__dirname,'./frontend/build'))
