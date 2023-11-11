@@ -5,7 +5,8 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import {Link} from 'react-router-dom'
 import '../../../src/index.css'
-// import '../styles/ProductDetails.css'
+// import 'styles/ProductDetails.css'
+// import '/Users/sayalikawatkar/Desktop/booktopia-online-bookstore/frontend/src/styles/ProductDetails.css'
 
 
 
@@ -30,7 +31,8 @@ const Products = () => {
     },[])
 
   return (
-    <Layout>
+    <Layout title={"Admin - View Products"}>
+        <div className="container-fluid m-3 p-3">
         <div className="row">
             <div className="col-md-3">
                 <AdminMenu/>
@@ -52,6 +54,7 @@ const Products = () => {
                 ))}
                 </div>
             </div>
+        </div>
         </div>
     </Layout>
   )

@@ -1,14 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display&display=swap');
+
 .footer {
-    color: white;
-    padding: 25px;
-    background: #000000; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-      to right,
-      #434343,
-      #000000
-    ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #434343, #000000);
-  }
+  font-family: 'Montserrat', sans-serif;
+    color: rgb(255, 255, 255);
+    background-color: #008f95 !important;
+    padding: 15px;
+}
   
   .footer a {
     text-decoration: none;
@@ -17,8 +14,8 @@
   }
   
   .footer a:hover {
-    color: #ffefba;
-    border-bottom: 1px solid #ffefba;
+    color: white;
+    border-bottom: 1px solid white;
   }
 
   

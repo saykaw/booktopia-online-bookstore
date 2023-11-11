@@ -117,6 +117,8 @@ const CartPage = () => {
                   >
                     Remove
                   </button>
+                  {/* <button className="ms-2 text-center">+</button>
+                  <button className="ms-2 text-center">-</button> */}
                 </div>
               </div>
             ))}

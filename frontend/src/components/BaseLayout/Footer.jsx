@@ -7,10 +7,10 @@ const Footer = () => {
   return (
     <>
     <div className="footer">
-    <h3 className="text-center">All rights reserved</h3>
-    <p className="text-center mt-3">
-      <Link to = '/aboutus'>About</Link> | <Link to = '/contactus'>Contact Us</Link> 
-    </p>
+      <p className="text-center"> &copy; 2023 Booktopia. All rights reserved.</p>
+      <p className="text-center mt-3">
+        <Link to = '/aboutus'>About</Link> | <Link to = '/contactus'>Contact Us</Link> 
+      </p>
     </div>
     </>
   )
