@@ -1,16 +1,45 @@
-/* //navbar css */
-.navbar {
-  font-family: "Poppins", sans-serif;
-  font-size: 17px;
-  line-height: 26px;
-  text-transform: uppercase;
-  box-shadow: 0 8px 6px -6px gray;
-  --webkit-box-shadow: 0 8px 6px -6px gray;
-  border-bottom: solid gray !important;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans:wght@300;400;500;600;700;800&family=Playfair+Display&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar{
+  font-family: 'Montserrat', sans-serif;
+  font-size:19px;
+  letter-spacing: 0.05rem;
+  line-height: 20px;
+  background-color: #008f95 !important;
+  padding: 12px !important;
+  /* font-family: 'Playfair Display', serif; */
+  /* box-shadow: 0 8px 6px -6px gray; 
+  --webkit-box-shadow: 0 8px 6px -6px gray; 
+  border-bottom: solid gray !important; */
+
+}
+
+.nav-item{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin: 4px;
+}
+
+.cart-item{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px !important;
+  /* margin-top:4.5px !important ; */
+}
+
+.cart-noti{
+  margin-top:6px !important ; 
 }
 
 .nav-link {
   font-weight: 300 !important;
+  color: white !important;
 }
 
 .active {
@@ -18,21 +47,34 @@
 }
 
 .navbar-brand {
-  font-weight: 700;
-  font-family: "roboto", sans-serif;
-  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800 !important;
+  letter-spacing: 0.75rem;
+  color: white !important;
 }
 
 .search-form {
   margin-right: 10px;
   margin-top: 4px;
 }
+
 .search-form input {
   border: none;
-  border-radius: 0;
+  border-radius: 12px;
 }
+
 .search-form button {
   background-color: #000000;
+  border: 0.5px solid white;
   border-radius: 0;
   color: white;
+  font-size: 14px;
+}
+
+.search-form button:hover{
+  border-radius: 0;
+  background-color: darkseagreen;
+  color: black;
+  border: 1px solid black;
 }

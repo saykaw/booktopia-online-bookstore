@@ -24,7 +24,7 @@ const Header = () => {
   }
   return (
     <>
-     <nav className="navbar navbar-expand-lg bg-body-tertiary">
+     <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <button
             className="navbar-toggler"
@@ -39,7 +39,7 @@ const Header = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
-                  <BiBookReader/>   Booktopia
+                  Booktopia
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <SearchInput />
@@ -123,9 +123,9 @@ const Header = () => {
                   </li>
                 </>
               )}
-               <li className="nav-item">
+               <li className="nav-item cart-noti">
                 <Badge count={cart?.length} showZero>
-                  <NavLink to="/cart" className="nav-link">
+                  <NavLink to="/cart" className="nav-link cart-item">
                     Cart 
                   </NavLink>
                 </Badge>
